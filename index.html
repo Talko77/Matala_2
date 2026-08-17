@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ממלכת ה-Flexbox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- פאנל צדדי: הוראות ובקרות -->
+        <div class="sidebar">
+            <header>
+                <h1>🧙‍♂️ ממלכת ה-Flexbox</h1>
+                <div class="level-indicator">
+                    <span id="level-title">שלב 1 מתוך 6</span>
+                    <button id="reset-btn" class="secondary-btn">🔄 איפוס שלב</button>
+                </div>
+            </header>
+
+            <section class="instructions">
+                <p id="level-description">המשימה תופיע כאן...</p>
+            </section>
+
+            <section class="controls">
+                <h3>מאפייני ה-Flexbox:</h3>
+                
+                <div class="control-group">
+                    <label for="flex-direction">flex-direction:</label>
+                    <select id="flex-direction" class="flex-control">
+                        <option value="row">row</option>
+                        <option value="row-reverse">row-reverse</option>
+                        <option value="column">column</option>
+                        <option value="column-reverse">column-reverse</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="justify-content">justify-content:</label>
+                    <select id="justify-content" class="flex-control">
+                        <option value="flex-start">flex-start</option>
+                        <option value="flex-end">flex-end</option>
+                        <option value="center">center</option>
+                        <option value="space-between">space-between</option>
+                        <option value="space-around">space-around</option>
+                        <option value="space-evenly">space-evenly</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="align-items">align-items:</label>
+                    <select id="align-items" class="flex-control">
+                        <option value="flex-start">flex-start</option>
+                        <option value="flex-end">flex-end</option>
+                        <option value="center">center</option>
+                        <option value="stretch">stretch</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="flex-wrap">flex-wrap:</label>
+                    <select id="flex-wrap" class="flex-control">
+                        <option value="nowrap">nowrap</option>
+                        <option value="wrap">wrap</option>
+                        <option value="wrap-reverse">wrap-reverse</option>
+                    </select>
+                </div>
+
+                <div class="actions">
+                    <button id="prev-btn" class="secondary-btn" style="display: none;">⬅️ שלב קודם</button>
+                    <button id="check-btn" class="primary-btn">✨ בדוק פתרון</button>
+                    <button id="next-btn" class="success-btn" style="display: none;">➡️ לשלב הבא</button>
+                    <button id="restart-btn" class="secondary-btn" style="display: none;">🔁 שחק שוב</button>
+                </div>
+            </section>
+
+            <div id="feedback-message" class="feedback"></div>
+            <div id="attempts-counter" class="attempts-counter"></div>
+        </div>
+
+        <!-- אזור משחק מרכזי: הלוח -->
+        <div class="board-wrapper">
+            <div id="game-board" class="board">
+                <!-- שכבת היעד (הצלליות) -->
+                <div id="target-container" class="board-layer"></div>
+                <!-- שכבת המשתמש (הדמויות הזזות) -->
+                <div id="user-container" class="board-layer"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
