@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #16213e;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 1100px;
+    width: 100%;
+}
+
+.sidebar {
+    flex: 1 1 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+header {
+    border-bottom: 2px solid #0f3460;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 1.6rem;
+    color: #e94560;
+    margin-bottom: 5px;
+}
+
+.level-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    color: #00fff5;
+}
+
+.instructions {
+    background-color: #0f3460;
+    padding: 15px;
+    border-radius: 8px;
+    line-height: 1.5;
+    min-height: 70px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.control-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    font-family: monospace;
+    font-size: 1rem;
+    color: #f8a5c2;
+}
+
+select {
+    background-color: #1a1a2e;
+    color: #fff;
+    border: 1px solid #0f3460;
+    padding: 6px 12px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #e94560;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.primary-btn { background-color: #e94560; color: #fff; flex: 1; }
+.secondary-btn { background-color: #53354a; color: #fff; font-size: 0.8rem; }
+.success-btn { background-color: #00b894; color: #fff; flex: 1; }
+
+.feedback {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    display: none;
+}
+
+.feedback.success { background-color: rgba(0, 184, 148, 0.2); color: #00b894; border: 1px solid #00b894; }
+.feedback.error { background-color: rgba(233, 69, 96, 0.2); color: #e94560; border: 1px solid #e94560; }
+
+/* אזור לוח המשחק - גודל קבוע בדרישה */
+.board-wrapper {
+    flex: 0 0 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-color: #0f3460;
+    border: 4px solid #53354a;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.board-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#target-container {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* הפריטים בתוך הלוח */
+.item {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.target-item {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px dashed #fff;
+    border-radius: 50%;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+@keyframes successPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+.feedback.error { animation: shake 0.4s ease; }
+.feedback.success { animation: successPulse 0.5s ease; }
+
+.attempts-counter {
+    font-size: 0.85rem;
+    color: #a0a0b0;
+    text-align: center;
+    min-height: 1.2em;
+}
+
+@media (max-width: 900px) {
+    .board-wrapper { flex: 1 1 100%; overflow-x: auto; }
+}
